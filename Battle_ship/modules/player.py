@@ -20,7 +20,8 @@ class Player:
                 command = input(prompt)
                 if command not in ["field_with_ships", "field_without_ships"]:
                     x, y = command.strip().split()
-                    assert 11 > int(y) > 0
+                    if 11 <= int(y):
+                        raise AssertionError
                     x, y = int(y) - 1, "abcdefghij".index(x)
                     return x, y
                 else:
